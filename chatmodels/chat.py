@@ -2,12 +2,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from langchain.chat_models import init_chat_model
+from langchain_mistralai import ChatMistralAI
 
 
 
-model = init_chat_model("google_genai:gemini-3.1-flash-lite")
-
+model = ChatMistralAI(
+    model="mistral-large-latest",
+    temperature=0
+)
 
 response = model.invoke("how to get hired in 2026 for SDE role")
+
 print(response.content)
